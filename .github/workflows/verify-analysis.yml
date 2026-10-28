@@ -1,0 +1,47 @@
+name: Verify airline analysis
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - tweets_indexer.py
+      - queries.txt
+      - requirements.txt
+      - scripts/verify_analysis.py
+      - .github/workflows/verify-analysis.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:9.5.5
+        env:
+          discovery.type: single-node
+          xpack.security.enabled: "false"
+          ES_JAVA_OPTS: -Xms1g -Xmx1g
+        ports:
+          - 9200:9200
+        options: >-
+          --health-cmd "curl --fail http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the client
+        run: pip install -r requirements.txt
+      - name: Run the indexer and all 14 queries
+        run: python scripts/verify_analysis.py
+      - name: Save the actual responses
+        uses: actions/upload-artifact@v4
+        with:
+          name: elasticsearch-evidence
+          path: evidence/

@@ -14,7 +14,7 @@ GET /tweets/_search
   }
 }
 
-# Q2 - Tweets about lost or delayed luggage and bags; show five examples.
+# Q2 - Require both a baggage term and a loss or delay term.
 GET /tweets/_search
 {
   "size": 5,
@@ -22,12 +22,10 @@ GET /tweets/_search
   "_source": ["text", "airline", "airline_sentiment", "created_at"],
   "query": {
     "bool": {
-      "should": [
-        {"match": {"text": "lost luggage"}},
-        {"match": {"text": "delayed luggage"}},
-        {"match": {"text": "bags"}}
-      ],
-      "minimum_should_match": 1
+      "must": [
+        {"match": {"text": "luggage bags baggage suitcase"}},
+        {"match": {"text": "lost delayed missing"}}
+      ]
     }
   },
   "sort": [{"created_at": "desc"}, {"tweet_id": "asc"}]
