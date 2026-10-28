@@ -18,7 +18,8 @@ GET /tweets/_search
 GET /tweets/_search
 {
   "size": 5,
-  "_source": ["text", "airline", "airline_sentiment"],
+  "track_total_hits": true,
+  "_source": ["text", "airline", "airline_sentiment", "created_at"],
   "query": {
     "bool": {
       "should": [
@@ -28,7 +29,8 @@ GET /tweets/_search
       ],
       "minimum_should_match": 1
     }
-  }
+  },
+  "sort": [{"created_at": "desc"}, {"tweet_id": "asc"}]
 }
 
 # Q3 - Positive tweets that contain the exact phrase customer service.
@@ -71,7 +73,7 @@ GET /tweets/_search
 {
   "size": 5,
   "_source": ["text", "airline", "retweet_count"],
-  "sort": [{"retweet_count": "desc"}]
+  "sort": [{"retweet_count": "desc"}, {"tweet_id": "asc"}]
 }
 
 # Q6 - Tweet counts and sentiment breakdown by airline.
@@ -142,6 +144,7 @@ GET /tweets/_search
 GET /tweets/_search
 {
   "size": 100,
+  "track_total_hits": true,
   "query": {
     "geo_distance": {
       "distance": "25km",
@@ -154,7 +157,8 @@ GET /tweets/_search
       "order": "asc",
       "unit": "km",
       "distance_type": "arc"
-    }}
+    }},
+    {"tweet_id": "asc"}
   ],
   "_source": ["text", "airline", "airline_sentiment", "location"]
 }
