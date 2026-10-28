@@ -1,0 +1,7 @@
+tweet_id,airline_sentiment,airline_sentiment_confidence,negativereason,negativereason_confidence,airline,airline_sentiment_gold,name,negativereason_gold,retweet_count,text,tweet_coord,tweet_created,tweet_location,user_timezone
+570306133677760513,neutral,1.0,,,Virgin America,,cairdin,,0,@VirginAmerica What @dhepburn said.,,2015-02-24 11:35:52 -0800,,Eastern Time (US & Canada)
+570301031407624196,negative,1.0,Bad Flight,0.7033,Virgin America,,jnardino,,0,"@VirginAmerica it's really aggressive to blast obnoxious ""entertainment"" in your guests' faces &amp; they have little recourse",,2015-02-24 11:15:36 -0800,,Pacific Time (US & Canada)
+570300000000000021,positive,1.0,,,Virgin America,,someone,,2,@VirginAmerica I love this graphic. #VX358 #NoAir http://t.co/UT5GrRwAaA,"[40.74804263, -73.99295302]",2015-02-24 10:00:00 -0800,,Eastern Time (US & Canada)
+570300000000000028,negative,0.6,Bad Flight,0.6,Virgin America,,other,,0,"@VirginAmerica amazing to me that we can't get any cold air from the vents.
+#VX358 #noair","[42.361016, -71.02000488]",2015-02-24 09:00:00 -0800,"San Mateo, CA & Las Vegas, NV",
+570300000000000085,negative,1.0,Customer Service Issue,1.0,Virgin America,,third,,0,@VirginAmerica trouble adding flight FLL-&gt;SFO,"[0.0, 0.0]",2015-02-23 08:00:00 -0800,"Lower Pacific Heights, SF, CA",Pacific Time (US & Canada)
