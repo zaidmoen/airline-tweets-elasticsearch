@@ -1,0 +1,1121 @@
+{
+  "server": {
+    "name": "bb9fde895a3c",
+    "cluster_name": "docker-cluster",
+    "cluster_uuid": "7G1QVa98Ram5--IQxKWCBA",
+    "version": {
+      "number": "9.5.5",
+      "build_flavor": "default",
+      "build_type": "docker",
+      "build_hash": "48acba663b09e70b115dd879329141506c377890",
+      "build_date": "2026-09-30T22:12:03.984586187Z",
+      "build_snapshot": false,
+      "lucene_version": "10.5.1",
+      "minimum_wire_compatibility_version": "8.19.0",
+      "minimum_index_compatibility_version": "8.0.0"
+    },
+    "tagline": "You Know, for Search"
+  },
+  "count": {
+    "count": 14485,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    }
+  },
+  "q1": {
+    "took": 54,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "negative_tweets": {
+        "doc_count": 9088,
+        "united": {
+          "doc_count": 2633
+        }
+      }
+    }
+  },
+  "q2": {
+    "took": 85,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 231,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "tweets",
+          "_id": "570288282413633536",
+          "_score": null,
+          "_source": {
+            "text": "@AmericanAir\n Your response could have made all the difference. It could have made the situation better. NO TRUST...GET LOST like my bag.",
+            "airline": "American",
+            "airline_sentiment": "negative",
+            "created_at": "2015-02-24T10:24:56-08:00"
+          },
+          "sort": [
+            1424802296000,
+            "570288282413633536"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "570275010759102466",
+          "_score": null,
+          "_source": {
+            "text": "@AmericanAir this delayed bag was for my friend Lisa Pafe. She got her bag after 3 days in Costa Rica. Issue no updates on your system.",
+            "airline": "American",
+            "airline_sentiment": "negative",
+            "created_at": "2015-02-24T09:32:12-08:00"
+          },
+          "sort": [
+            1424799132000,
+            "570275010759102466"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "570272154635374592",
+          "_score": null,
+          "_source": {
+            "text": "@USAirways my bag is still lost and I can not get anyone on the phone to assist me and the tracking updates have stopped",
+            "airline": "US Airways",
+            "airline_sentiment": "negative",
+            "created_at": "2015-02-24T09:20:51-08:00"
+          },
+          "sort": [
+            1424798451000,
+            "570272154635374592"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "570266460003508225",
+          "_score": null,
+          "_source": {
+            "text": "@AmericanAir \nNot giving you a hard time...Just looking for basic customer service after AA lost my bag. ETA on it's return, please????????",
+            "airline": "American",
+            "airline_sentiment": "negative",
+            "created_at": "2015-02-24T08:58:13-08:00"
+          },
+          "sort": [
+            1424797093000,
+            "570266460003508225"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "570264856223330304",
+          "_score": null,
+          "_source": {
+            "text": "@SouthwestAir do you know that your lost baggage portal http://t.co/hUcLXluV5h doesn't work on mobile? It's a 404 http://t.co/O4ZR27Qpcr",
+            "airline": "Southwest",
+            "airline_sentiment": "negative",
+            "created_at": "2015-02-24T08:51:51-08:00"
+          },
+          "sort": [
+            1424796711000,
+            "570264856223330304"
+          ]
+        }
+      ]
+    }
+  },
+  "q3": {
+    "took": 21,
+    "timed_out": false,
+    "terminated_early": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 91,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": []
+    }
+  },
+  "q4": {
+    "took": 29,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 25,
+        "relation": "eq"
+      },
+      "max_score": 0,
+      "hits": [
+        {
+          "_index": "tweets",
+          "_id": "570066554848743424",
+          "_score": 0,
+          "_source": {
+            "tweet_id": "570066554848743424",
+            "text": "@JetBlue we would have been up in the air by now. Now our new plane we've been redirected to has mechanical errors aka more delays 2/3",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "airline_sentiment_confidence": 1,
+            "negativereason": "Late Flight",
+            "negativereason_confidence": 1,
+            "user_name": "djcheros",
+            "retweet_count": 0,
+            "created_at": "2015-02-23T19:43:52-08:00",
+            "user_location": "Portland, Maine",
+            "user_timezone": "Eastern Time (US & Canada)",
+            "mentions": [
+              "jetblue"
+            ],
+            "has_location": false
+          }
+        },
+        {
+          "_index": "tweets",
+          "_id": "570066245195829249",
+          "_score": 0,
+          "_source": {
+            "tweet_id": "570066245195829249",
+            "text": "@JetBlue you delay all my flights. Then you redirect my gate. Then you tell me had we stuck with the original gate we would have 1/3",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "airline_sentiment_confidence": 1,
+            "negativereason": "Late Flight",
+            "negativereason_confidence": 1,
+            "user_name": "djcheros",
+            "retweet_count": 0,
+            "created_at": "2015-02-23T19:42:38-08:00",
+            "user_location": "Portland, Maine",
+            "user_timezone": "Eastern Time (US & Canada)",
+            "mentions": [
+              "jetblue"
+            ],
+            "has_location": false
+          }
+        },
+        {
+          "_index": "tweets",
+          "_id": "570056726793359360",
+          "_score": 0,
+          "_source": {
+            "tweet_id": "570056726793359360",
+            "text": "@JetBlue not one of my four flights this trip has been on time. What the he'll is your companies problem?",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "airline_sentiment_confidence": 1,
+            "negativereason": "Late Flight",
+            "negativereason_confidence": 1,
+            "user_name": "djcheros",
+            "retweet_count": 0,
+            "created_at": "2015-02-23T19:04:49-08:00",
+            "user_location": "Portland, Maine",
+            "user_timezone": "Eastern Time (US & Canada)",
+            "mentions": [
+              "jetblue"
+            ],
+            "has_location": false
+          }
+        },
+        {
+          "_index": "tweets",
+          "_id": "570048890466111488",
+          "_score": 0,
+          "_source": {
+            "tweet_id": "570048890466111488",
+            "text": "@JetBlue @DatingRev mco to lag two hour delay and sitting in Tarmac going on 40 minutes with infants crying on plane!! Get us off this plane",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "airline_sentiment_confidence": 1,
+            "negativereason": "Late Flight",
+            "negativereason_confidence": 1,
+            "user_name": "MariaZarkadas",
+            "retweet_count": 0,
+            "created_at": "2015-02-23T18:33:41-08:00",
+            "user_location": "New York",
+            "mentions": [
+              "jetblue",
+              "datingrev"
+            ],
+            "has_location": false
+          }
+        },
+        {
+          "_index": "tweets",
+          "_id": "570039630973829120",
+          "_score": 0,
+          "_source": {
+            "tweet_id": "570039630973829120",
+            "text": "@JetBlue well our plane just landed at the international terminal... so they announced the 10 pm new time.",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "airline_sentiment_confidence": 0.6617,
+            "negativereason": "Late Flight",
+            "negativereason_confidence": 0.6617,
+            "user_name": "DatingRev",
+            "retweet_count": 0,
+            "created_at": "2015-02-23T17:56:53-08:00",
+            "user_location": "Los Angeles, CA",
+            "user_timezone": "Eastern Time (US & Canada)",
+            "mentions": [
+              "jetblue"
+            ],
+            "has_location": false
+          }
+        }
+      ]
+    }
+  },
+  "q5": {
+    "took": 19,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "tweets",
+          "_id": "567897883875217408",
+          "_score": null,
+          "_source": {
+            "text": "@USAirways 5 hr flight delay and a delay when we land . Is that even real life ? Get me off this plane , I wanna go home 👠👠👠 (3 heel clicks)",
+            "airline": "US Airways",
+            "retweet_count": 44
+          },
+          "sort": [
+            44,
+            "567897883875217408"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "567909106553483264",
+          "_score": null,
+          "_source": {
+            "text": "@USAirways of course never again tho . Thanks for tweetin ur concern but not Doin anythin to fix what happened. I'll choose wiser next time",
+            "airline": "US Airways",
+            "retweet_count": 32
+          },
+          "sort": [
+            32,
+            "567909106553483264"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "569927288751587328",
+          "_score": null,
+          "_source": {
+            "text": "STOP. USING.THIS.WORD. IF. YOU'RE. A. COMPANY. RT @JetBlue: Our fleet's on fleek. http://t.co/Fd2TNYcTrB",
+            "airline": "Delta",
+            "retweet_count": 31
+          },
+          "sort": [
+            31,
+            "569927288751587328"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "569584057270575105",
+          "_score": null,
+          "_source": {
+            "text": "@USAirways with this livery back in the day. http://t.co/EEqWVAMmiy",
+            "airline": "US Airways",
+            "retweet_count": 28
+          },
+          "sort": [
+            28,
+            "569584057270575105"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "568869594531651584",
+          "_score": null,
+          "_source": {
+            "text": "@SouthwestAir beautiful day in Seattle! http://t.co/iqu0PPVq2S",
+            "airline": "Southwest",
+            "retweet_count": 22
+          },
+          "sort": [
+            22,
+            "568869594531651584"
+          ]
+        }
+      ]
+    }
+  },
+  "q6": {
+    "took": 32,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "airlines": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "United",
+            "doc_count": 3822,
+            "sentiments": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 0,
+              "buckets": [
+                {
+                  "key": "negative",
+                  "doc_count": 2633
+                },
+                {
+                  "key": "neutral",
+                  "doc_count": 697
+                },
+                {
+                  "key": "positive",
+                  "doc_count": 492
+                }
+              ]
+            }
+          },
+          {
+            "key": "US Airways",
+            "doc_count": 2913,
+            "sentiments": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 0,
+              "buckets": [
+                {
+                  "key": "negative",
+                  "doc_count": 2263
+                },
+                {
+                  "key": "neutral",
+                  "doc_count": 381
+                },
+                {
+                  "key": "positive",
+                  "doc_count": 269
+                }
+              ]
+            }
+          },
+          {
+            "key": "American",
+            "doc_count": 2604,
+            "sentiments": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 0,
+              "buckets": [
+                {
+                  "key": "negative",
+                  "doc_count": 1870
+                },
+                {
+                  "key": "neutral",
+                  "doc_count": 429
+                },
+                {
+                  "key": "positive",
+                  "doc_count": 305
+                }
+              ]
+            }
+          },
+          {
+            "key": "Southwest",
+            "doc_count": 2420,
+            "sentiments": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 0,
+              "buckets": [
+                {
+                  "key": "negative",
+                  "doc_count": 1186
+                },
+                {
+                  "key": "neutral",
+                  "doc_count": 664
+                },
+                {
+                  "key": "positive",
+                  "doc_count": 570
+                }
+              ]
+            }
+          },
+          {
+            "key": "Delta",
+            "doc_count": 2222,
+            "sentiments": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 0,
+              "buckets": [
+                {
+                  "key": "negative",
+                  "doc_count": 955
+                },
+                {
+                  "key": "neutral",
+                  "doc_count": 723
+                },
+                {
+                  "key": "positive",
+                  "doc_count": 544
+                }
+              ]
+            }
+          },
+          {
+            "key": "Virgin America",
+            "doc_count": 504,
+            "sentiments": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 0,
+              "buckets": [
+                {
+                  "key": "negative",
+                  "doc_count": 181
+                },
+                {
+                  "key": "neutral",
+                  "doc_count": 171
+                },
+                {
+                  "key": "positive",
+                  "doc_count": 152
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "q7": {
+    "took": 25,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 9088,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "airlines": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "United",
+            "doc_count": 2633,
+            "reasons": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 1048,
+              "buckets": [
+                {
+                  "key": "Customer Service Issue",
+                  "doc_count": 681
+                },
+                {
+                  "key": "Late Flight",
+                  "doc_count": 525
+                },
+                {
+                  "key": "Can't Tell",
+                  "doc_count": 379
+                }
+              ]
+            }
+          },
+          {
+            "key": "US Airways",
+            "doc_count": 2263,
+            "reasons": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 753,
+              "buckets": [
+                {
+                  "key": "Customer Service Issue",
+                  "doc_count": 811
+                },
+                {
+                  "key": "Late Flight",
+                  "doc_count": 453
+                },
+                {
+                  "key": "Can't Tell",
+                  "doc_count": 246
+                }
+              ]
+            }
+          },
+          {
+            "key": "American",
+            "doc_count": 1870,
+            "reasons": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 661,
+              "buckets": [
+                {
+                  "key": "Customer Service Issue",
+                  "doc_count": 741
+                },
+                {
+                  "key": "Late Flight",
+                  "doc_count": 237
+                },
+                {
+                  "key": "Cancelled Flight",
+                  "doc_count": 231
+                }
+              ]
+            }
+          },
+          {
+            "key": "Southwest",
+            "doc_count": 1186,
+            "reasons": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 474,
+              "buckets": [
+                {
+                  "key": "Customer Service Issue",
+                  "doc_count": 391
+                },
+                {
+                  "key": "Cancelled Flight",
+                  "doc_count": 162
+                },
+                {
+                  "key": "Can't Tell",
+                  "doc_count": 159
+                }
+              ]
+            }
+          },
+          {
+            "key": "Delta",
+            "doc_count": 955,
+            "reasons": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 301,
+              "buckets": [
+                {
+                  "key": "Late Flight",
+                  "doc_count": 269
+                },
+                {
+                  "key": "Customer Service Issue",
+                  "doc_count": 199
+                },
+                {
+                  "key": "Can't Tell",
+                  "doc_count": 186
+                }
+              ]
+            }
+          },
+          {
+            "key": "Virgin America",
+            "doc_count": 181,
+            "reasons": {
+              "doc_count_error_upper_bound": 0,
+              "sum_other_doc_count": 71,
+              "buckets": [
+                {
+                  "key": "Customer Service Issue",
+                  "doc_count": 60
+                },
+                {
+                  "key": "Flight Booking Problems",
+                  "doc_count": 28
+                },
+                {
+                  "key": "Can't Tell",
+                  "doc_count": 22
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "q8": {
+    "took": 17,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "tweets_per_day": {
+        "buckets": [
+          {
+            "key_as_string": "2015-02-16T00:00:00.000-08:00",
+            "key": 1424073600000,
+            "doc_count": 4
+          },
+          {
+            "key_as_string": "2015-02-17T00:00:00.000-08:00",
+            "key": 1424160000000,
+            "doc_count": 1408
+          },
+          {
+            "key_as_string": "2015-02-18T00:00:00.000-08:00",
+            "key": 1424246400000,
+            "doc_count": 1344
+          },
+          {
+            "key_as_string": "2015-02-19T00:00:00.000-08:00",
+            "key": 1424332800000,
+            "doc_count": 1376
+          },
+          {
+            "key_as_string": "2015-02-20T00:00:00.000-08:00",
+            "key": 1424419200000,
+            "doc_count": 1500
+          },
+          {
+            "key_as_string": "2015-02-21T00:00:00.000-08:00",
+            "key": 1424505600000,
+            "doc_count": 1557
+          },
+          {
+            "key_as_string": "2015-02-22T00:00:00.000-08:00",
+            "key": 1424592000000,
+            "doc_count": 3073
+          },
+          {
+            "key_as_string": "2015-02-23T00:00:00.000-08:00",
+            "key": 1424678400000,
+            "doc_count": 3026
+          },
+          {
+            "key_as_string": "2015-02-24T00:00:00.000-08:00",
+            "key": 1424764800000,
+            "doc_count": 1197
+          }
+        ]
+      }
+    }
+  },
+  "q9": {
+    "took": 23,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "top_hashtags": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 3052,
+        "buckets": [
+          {
+            "key": "destinationdragons",
+            "doc_count": 81
+          },
+          {
+            "key": "fail",
+            "doc_count": 67
+          },
+          {
+            "key": "jetblue",
+            "doc_count": 48
+          },
+          {
+            "key": "unitedairlines",
+            "doc_count": 45
+          },
+          {
+            "key": "customerservice",
+            "doc_count": 36
+          },
+          {
+            "key": "usairways",
+            "doc_count": 28
+          },
+          {
+            "key": "neveragain",
+            "doc_count": 27
+          },
+          {
+            "key": "americanairlines",
+            "doc_count": 26
+          },
+          {
+            "key": "united",
+            "doc_count": 26
+          },
+          {
+            "key": "usairwaysfail",
+            "doc_count": 26
+          }
+        ]
+      }
+    }
+  },
+  "q10": {
+    "took": 7,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "all_tweets": {
+        "value": 14485
+      },
+      "geotagged": {
+        "doc_count": 847
+      }
+    }
+  },
+  "q11": {
+    "took": 47,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 83,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "tweets",
+          "_id": "568611474416906240",
+          "_score": null,
+          "_source": {
+            "text": "@JetBlue I appreciate the quick response but how can no one go outside to check temp so we can leave in BUF #currentlysittingontarmac",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "location": {
+              "lat": 40.64374009,
+              "lon": -73.77678134
+            }
+          },
+          "sort": [
+            0.29324660165706523,
+            "568611474416906240"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "569967019958730753",
+          "_score": null,
+          "_source": {
+            "text": "@VirginAmerica everything was fine until you lost my bag",
+            "airline": "Virgin America",
+            "airline_sentiment": "negative",
+            "location": {
+              "lat": 40.6413712,
+              "lon": -73.78311558
+            }
+          },
+          "sort": [
+            0.42326567149569816,
+            "569967019958730753"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "568216703055876096",
+          "_score": null,
+          "_source": {
+            "text": "@JetBlue I was believing you for a minute, but we just got delayed for a 3rd time!",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "location": {
+              "lat": 40.64527675,
+              "lon": -73.7761654
+            }
+          },
+          "sort": [
+            0.4713549801016169,
+            "568216703055876096"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "568204705861652480",
+          "_score": null,
+          "_source": {
+            "text": "@jetblue waiting for flt 105 to Chicago. Why hasn't aircraft left buffalo yet?",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "location": {
+              "lat": 40.64527481,
+              "lon": -73.77615604
+            }
+          },
+          "sort": [
+            0.471426408742148,
+            "568204705861652480"
+          ]
+        },
+        {
+          "_index": "tweets",
+          "_id": "568196466503770112",
+          "_score": null,
+          "_source": {
+            "text": "@JetBlue the big board says we aren't leaving until after 8:30 😩",
+            "airline": "Delta",
+            "airline_sentiment": "negative",
+            "location": {
+              "lat": 40.64518126,
+              "lon": -73.77582926
+            }
+          },
+          "sort": [
+            0.4721883855212357,
+            "568196466503770112"
+          ]
+        }
+      ]
+    }
+  },
+  "q12": {
+    "took": 8,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 80,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "airlines": {
+        "doc_count_error_upper_bound": 0,
+        "sum_other_doc_count": 0,
+        "buckets": [
+          {
+            "key": "United",
+            "doc_count": 43
+          },
+          {
+            "key": "American",
+            "doc_count": 13
+          },
+          {
+            "key": "Southwest",
+            "doc_count": 13
+          },
+          {
+            "key": "US Airways",
+            "doc_count": 6
+          },
+          {
+            "key": "Delta",
+            "doc_count": 4
+          },
+          {
+            "key": "Virgin America",
+            "doc_count": 1
+          }
+        ]
+      }
+    }
+  },
+  "q13": {
+    "took": 7,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "distance_rings": {
+        "buckets": [
+          {
+            "key": "0-50 km",
+            "from": 0,
+            "to": 50,
+            "doc_count": 47
+          },
+          {
+            "key": "50-500 km",
+            "from": 50,
+            "to": 500,
+            "doc_count": 24
+          },
+          {
+            "key": "over 500 km",
+            "from": 500,
+            "doc_count": 776
+          }
+        ]
+      }
+    }
+  },
+  "q14": {
+    "took": 27,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 10000,
+        "relation": "gte"
+      },
+      "max_score": null,
+      "hits": []
+    },
+    "aggregations": {
+      "busiest_cells": {
+        "buckets": [
+          {
+            "key": "6/18/24",
+            "doc_count": 205
+          },
+          {
+            "key": "6/17/25",
+            "doc_count": 53
+          },
+          {
+            "key": "6/16/23",
+            "doc_count": 53
+          },
+          {
+            "key": "6/15/26",
+            "doc_count": 46
+          },
+          {
+            "key": "6/11/25",
+            "doc_count": 46
+          }
+        ]
+      },
+      "negative_centroid": {
+        "doc_count": 9088,
+        "center": {
+          "location": {
+            "lat": 37.16357098323189,
+            "lon": -87.38189009890434
+          },
+          "count": 567
+        }
+      }
+    }
+  }
+}

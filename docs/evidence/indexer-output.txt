@@ -1,0 +1,3 @@
+Connected to cluster 'docker-cluster', Elasticsearch 9.5.5
+Rows read: 14640, skipped: 0, indexed: 14640, failed: 0, with valid coordinates: 855
+Documents now in 'tweets': 14485

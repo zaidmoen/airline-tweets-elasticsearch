@@ -1,0 +1,20 @@
+{
+  "verified_on": "2026-10-28",
+  "workflow_url": "https://github.com/zaidmoen/airline-tweets-elasticsearch/actions/runs/40709322902",
+  "source_commit": "9d19eaf4ff9c0ddb80570559d91816741edc892d",
+  "elasticsearch_version": "9.5.5",
+  "query_count": 14,
+  "all_queries_succeeded": true,
+  "results_note": "Actual Elasticsearch responses; hit arrays are limited to the first five for readability. Full responses are in the workflow artifact.",
+  "dataset_url": "https://huggingface.co/datasets/osanseviero/twitter-airline-sentiment/blob/main/Tweets.csv",
+  "dataset_sha256": "ea94b23f41892b290dec3330bb8cf9cb6b8bc669eaae5f3a84c40f7b0de8f15e",
+  "source_rows": 14640,
+  "nonempty_coordinate_rows": 1019,
+  "zero_coordinate_rows": 164,
+  "valid_coordinate_rows": 855,
+  "repeated_id_surplus_rows": 155,
+  "indexed_actions": 14640,
+  "failed_actions": 0,
+  "unique_documents": 14485,
+  "sample_dry_run": {"read": 5, "skipped": 0, "with_location": 2}
+}

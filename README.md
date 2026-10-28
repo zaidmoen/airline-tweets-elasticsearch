@@ -25,13 +25,19 @@ aggregation, and geospatial queries.
 | --- | --- |
 | [`tweets_indexer.py`](tweets_indexer.py) | Cleans the CSV and bulk-indexes tweets. |
 | [`queries.txt`](queries.txt) | All 14 Elasticsearch queries in Kibana Console format. |
-| [`report.pdf`](report.pdf) | Completed activity report with calculated results. |
+| [`report.pdf`](report.pdf) | Four-page academic report with verified Elasticsearch results. |
 | [`docs/results.md`](docs/results.md) | Quick, GitHub-friendly summary of the main findings. |
+| [`docs/evidence/`](docs/evidence/) | Actual indexing log, query responses, and verification metadata. |
+| [`scripts/verify_analysis.py`](scripts/verify_analysis.py) | Downloads the fixed dataset and runs all queries against Elasticsearch. |
+| [`scripts/build_report.py`](scripts/build_report.py) | Rebuilds the PDF using the saved evidence. |
 | [`sample_tweets.csv`](sample_tweets.csv) | Five rows for testing without the full dataset. |
 | [`compose.yaml`](compose.yaml) | Local Elasticsearch and Kibana services. |
 | [`requirements.txt`](requirements.txt) | Python dependency versions. |
 
 ## Visual output
+
+The redesigned [academic report](report.pdf) includes readable result tables,
+vector charts, source links, and the actual indexing output.
 
 ### Indexer output
 
@@ -140,11 +146,37 @@ GET /tweets/_mapping
 | Negative United tweets | 2,633 |
 | Tweets within 25 km of JFK | 83 |
 
-The source CSV contains 155 repeated tweet IDs. Since the indexer uses
+The source CSV contains 155 repeated-ID surplus rows. Since the indexer uses
 `tweet_id` as Elasticsearch `_id`, later copies update earlier documents and
 the final index contains 14,485 unique documents. See
 [`docs/results.md`](docs/results.md) and [`report.pdf`](report.pdf) for the
 complete results.
+
+The full indexer and all 14 queries were executed successfully against
+Elasticsearch 9.5.5 on 28 October 2026:
+[view the verification run](https://github.com/zaidmoen/airline-tweets-elasticsearch/actions/runs/40709322902).
+All 14,640 bulk actions succeeded, with zero failures. The saved
+[query responses](docs/evidence/results.json) contain the first five hits per
+query; the workflow artifact contains the full responses.
+
+The luggage query now requires both a baggage term and a loss or delay term
+(231 hits). The positive `customer service` phrase query returns 91 hits
+using the English analyzer.
+
+## Rebuild the report
+
+The PDF uses ReportLab and the DejaVu fonts supplied by most Linux systems.
+On Ubuntu, install the fonts with `sudo apt-get install fonts-dejavu-core`.
+
+```bash
+pip install reportlab
+python scripts/build_report.py
+```
+
+This rebuilds `report.pdf` from the saved evidence. To collect fresh responses
+from a local Elasticsearch instance first, run `python scripts/verify_analysis.py`.
+That script recreates the local `tweets` index and writes new files to `evidence/`;
+review them before replacing the report's saved evidence in `docs/evidence/`.
 
 ## Index design
 
