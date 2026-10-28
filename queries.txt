@@ -1,0 +1,215 @@
+# Run in Kibana Dev Tools Console. All queries target the tweets index.
+
+# Q1 - Total negative tweets and negative United tweets.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {
+    "negative_tweets": {
+      "filter": {"term": {"airline_sentiment": "negative"}},
+      "aggs": {
+        "united": {"filter": {"term": {"airline": "United"}}}
+      }
+    }
+  }
+}
+
+# Q2 - Tweets about lost or delayed luggage and bags; show five examples.
+GET /tweets/_search
+{
+  "size": 5,
+  "_source": ["text", "airline", "airline_sentiment"],
+  "query": {
+    "bool": {
+      "should": [
+        {"match": {"text": "lost luggage"}},
+        {"match": {"text": "delayed luggage"}},
+        {"match": {"text": "bags"}}
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+
+# Q3 - Positive tweets that contain the exact phrase customer service.
+GET /tweets/_search
+{
+  "size": 0,
+  "track_total_hits": true,
+  "query": {
+    "bool": {
+      "filter": [{"term": {"airline_sentiment": "positive"}}],
+      "must": [{"match_phrase": {"text": "customer service"}}]
+    }
+  }
+}
+
+# Q4 - Negative Delta late-flight tweets on February 23 in Pacific time.
+GET /tweets/_search
+{
+  "size": 100,
+  "query": {
+    "bool": {
+      "filter": [
+        {"term": {"airline_sentiment": "negative"}},
+        {"term": {"airline": "Delta"}},
+        {"term": {"negativereason": "Late Flight"}},
+        {"range": {
+          "created_at": {
+            "gte": "2015-02-23T00:00:00",
+            "lt": "2015-02-24T00:00:00",
+            "time_zone": "America/Los_Angeles"
+          }
+        }}
+      ]
+    }
+  }
+}
+
+# Q5 - Five most-retweeted tweets.
+GET /tweets/_search
+{
+  "size": 5,
+  "_source": ["text", "airline", "retweet_count"],
+  "sort": [{"retweet_count": "desc"}]
+}
+
+# Q6 - Tweet counts and sentiment breakdown by airline.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {
+    "airlines": {
+      "terms": {"field": "airline", "size": 10},
+      "aggs": {
+        "sentiments": {"terms": {"field": "airline_sentiment", "size": 3}}
+      }
+    }
+  }
+}
+
+# Q7 - Three most common negative reasons for each airline.
+GET /tweets/_search
+{
+  "size": 0,
+  "query": {"term": {"airline_sentiment": "negative"}},
+  "aggs": {
+    "airlines": {
+      "terms": {"field": "airline", "size": 10},
+      "aggs": {
+        "reasons": {"terms": {"field": "negativereason", "size": 3}}
+      }
+    }
+  }
+}
+
+# Q8 - Tweet counts per calendar day in Pacific time.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {
+    "tweets_per_day": {
+      "date_histogram": {
+        "field": "created_at",
+        "calendar_interval": "day",
+        "time_zone": "America/Los_Angeles",
+        "min_doc_count": 0
+      }
+    }
+  }
+}
+
+# Q9 - Ten most frequent hashtags.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {"top_hashtags": {"terms": {"field": "hashtags", "size": 10}}}
+}
+
+# Q10 - Geotagged count and share of all indexed tweets.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {
+    "all_tweets": {"value_count": {"field": "tweet_id"}},
+    "geotagged": {
+      "filter": {"term": {"has_location": true}}
+    }
+  }
+}
+
+# Q11 - Tweets within 25 km of JFK, nearest first.
+GET /tweets/_search
+{
+  "size": 100,
+  "query": {
+    "geo_distance": {
+      "distance": "25km",
+      "location": {"lat": 40.6413, "lon": -73.7781}
+    }
+  },
+  "sort": [
+    {"_geo_distance": {
+      "location": {"lat": 40.6413, "lon": -73.7781},
+      "order": "asc",
+      "unit": "km",
+      "distance_type": "arc"
+    }}
+  ],
+  "_source": ["text", "airline", "airline_sentiment", "location"]
+}
+
+# Q12 - Negative California geotweets grouped by airline.
+GET /tweets/_search
+{
+  "size": 0,
+  "query": {
+    "bool": {
+      "filter": [
+        {"term": {"airline_sentiment": "negative"}},
+        {"geo_bounding_box": {
+          "location": {
+            "top_left": {"lat": 42.0, "lon": -124.5},
+            "bottom_right": {"lat": 32.5, "lon": -114.1}
+          }
+        }}
+      ]
+    }
+  },
+  "aggs": {"airlines": {"terms": {"field": "airline", "size": 10}}}
+}
+
+# Q13 - Geotweets in distance rings around Chicago O'Hare.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {
+    "distance_rings": {
+      "geo_distance": {
+        "field": "location",
+        "origin": {"lat": 41.9742, "lon": -87.9073},
+        "unit": "km",
+        "ranges": [
+          {"key": "0-50 km", "from": 0, "to": 50},
+          {"key": "50-500 km", "from": 50, "to": 500},
+          {"key": "over 500 km", "from": 500}
+        ]
+      }
+    }
+  }
+}
+
+# Q14 - Busiest map cells and centroid of negative geotweets.
+GET /tweets/_search
+{
+  "size": 0,
+  "aggs": {
+    "busiest_cells": {
+      "geotile_grid": {"field": "location", "precision": 6, "size": 5}
+    },
+    "negative_centroid": {
+      "filter": {"term": {"airline_sentiment": "negative"}},
+      "aggs": {"center": {"geo_centroid": {"field": "location"}}}
+    }
+  }
+}
