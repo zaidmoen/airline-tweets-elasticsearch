@@ -31,6 +31,20 @@ aggregation, and geospatial queries.
 | [`compose.yaml`](compose.yaml) | Local Elasticsearch and Kibana services. |
 | [`requirements.txt`](requirements.txt) | Python dependency versions. |
 
+## Visual output
+
+### Indexer output
+
+![Indexer output](assets/indexer-output.png)
+
+### Sentiment by airline
+
+![Sentiment distribution by airline](assets/sentiment-by-airline.png)
+
+### Query results dashboard
+
+![Query results dashboard](assets/query-results-dashboard.png)
+
 ## Quick start
 
 ### 1. Clone and install
